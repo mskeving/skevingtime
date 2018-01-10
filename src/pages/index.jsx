@@ -1,29 +1,38 @@
-import moment from 'moment-timezone';
-import React, { Component } from 'react';
-import TimePicker from 'rc-time-picker';
+import moment from "moment-timezone";
+import React, { Component } from "react";
+import TimePicker from "rc-time-picker";
 
-import 'rc-time-picker/assets/index.css';
+import "rc-time-picker/assets/index.css";
 
 // time zones
-const gmt = 'Europe/Dublin';
-const salamanca = 'Europe/Madrid';
-const saratoga = 'America/New_York';
-const houston = 'America/Monterrey';
-const sanfran = 'America/Los_Angeles';
+const gmt = "Europe/Dublin";
+const salamanca = "Europe/Madrid";
+const saratoga = "America/New_York";
+const houston = "America/Monterrey";
+const sanfran = "America/Los_Angeles";
 
 function TimeDisplay(props) {
   return (
-    <div>
-      <div>{props.title}</div>
-      <TimePicker
-        showSecond={false}
-        defaultValue={props.time}
-        className="xxx"
-        onChange={props.updateTime}
-        format={'h:mm a'}
-        value={props.time}
-        use12Hours
-      />
+    <div style={{
+      display: "inline-block",
+      textAlign: "center",
+      width: "25%",
+      fontFamily: "Arial, Futura, Impact, Helvetica, sans-serif",
+      minWidth: "150px",
+      margin: "10px 0"
+    }}>
+      <div style={{display: "block"}}>{props.title}</div>
+      <div style={{display: "block", margin: "auto"}}>
+        <TimePicker
+          showSecond={false}
+          defaultValue={props.time}
+          className="xxx"
+          onChange={props.updateTime}
+          format={"h:mm a"}
+          value={props.time}
+          use12Hours
+        />
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import './index.css'
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: 'teal',
       marginBottom: '1.45rem',
     }}
   >
@@ -17,18 +17,11 @@ const Header = () => (
         margin: '0 auto',
         maxWidth: 960,
         padding: '1.45rem 1.0875rem',
+        textAlign: 'center',
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Skevingtime
-        </Link>
+      <h1 style={{ margin: 0, color: 'white' }}>
+        Skevingtime
       </h1>
     </div>
   </div>
