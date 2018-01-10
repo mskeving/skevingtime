@@ -14,15 +14,14 @@ const sanfran = "America/Los_Angeles";
 function TimeDisplay(props) {
   return (
     <div style={{
-      display: "inline-block",
       textAlign: "center",
-      width: "25%",
+      width: "20%",
       fontFamily: "Arial, Futura, Impact, Helvetica, sans-serif",
       minWidth: "150px",
-      margin: "10px 0"
+      margin: "10px"
     }}>
-      <div style={{display: "block"}}>{props.title}</div>
-      <div style={{display: "block", margin: "auto"}}>
+      <div >{props.title}</div>
+      <div style={{margin: "auto"}}>
         <TimePicker
           showSecond={false}
           defaultValue={props.time}
@@ -68,7 +67,11 @@ class IndexPage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{
+        display: "flex",
+        justifyContent: "space-evenly",
+        flexWrap: "wrap"
+      }}>
         <TimeDisplay
           title="San Francisco"
           updateTime={this.updateTime}
