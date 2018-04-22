@@ -11,6 +11,8 @@ const saratoga = "America/New_York";
 const houston = "America/Monterrey";
 const sanfran = "America/Los_Angeles";
 
+const oneMin = 60000; // ms
+
 function TimeDisplay(props) {
   return (
     <div style={{
@@ -39,22 +41,25 @@ function TimeDisplay(props) {
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-
     this.state = this.getTimes()
-
     this.updateTime = this.updateTime.bind(this)
   }
 
   componentDidMount() {
-    this.getTimes()
+    this.getTimes();
+    this.intervalId = window.setInterval(this.updateTime, oneMin);
+  }
+
+  componentWillUnmount() {
+    window.clearInterval(this.intervalId);
   }
 
   updateTime(timeMoment) {
     this.setState(this.getTimes(timeMoment));
   }
 
-  getTimes(timeMoment) {
-    let time = timeMoment || moment()  // default to now gmt
+  getTimes() {
+    let time = moment()  // default to now gmt
     return {
       timeGMT: moment.tz(time, gmt),
       timeSaratoga: moment.tz(time, saratoga),
